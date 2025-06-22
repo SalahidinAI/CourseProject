@@ -259,7 +259,7 @@ class CartItem(models.Model):
 
 
 class Favorite(models.Model):
-    user = models.ForeignKey(Student, on_delete=models.CASCADE)
+    user = models.OneToOneField(Student, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.user}'

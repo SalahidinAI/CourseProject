@@ -339,7 +339,7 @@ class CartItemViewSet(viewsets.ModelViewSet):
     permission_classes = [CheckStudent]
 
     def get_queryset(self):
-        return  CartItem.objects.filter(cart__user__user=self.request.user)
+        return CartItem.objects.filter(cart__user__user=self.request.user)
 
     def perform_create(self, serializer):
         cart, created = Cart.objects.get_or_create(user=self.request.user)
@@ -364,7 +364,7 @@ class FavoriteItemViewSet(viewsets.ModelViewSet):
     permission_classes = [CheckStudent]
 
     def get_queryset(self):
-        return  FavoriteItem.objects.filter(favorite__user__user=self.request.user)
+        return FavoriteItem.objects.filter(favorite__user__user=self.request.user)
 
     def perform_create(self, serializer):
         cart, created = Favorite.objects.get_or_create(user=self.request.user)
